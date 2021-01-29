@@ -17,7 +17,8 @@ namespace cbapiserviceconsole
         public static string[] CORSList = {"https://SITEDOMAIN.com"};
         //"http://127.0.0.1",
         // public static string LOCAL_URL_LIST = "http://*:5000"; https://*:5001;
-        public static string LOCAL_URL_LIST = "http://127.0.0.1:5000;http://localhost:5000;https://localhost:5001;https://127.0.0.1:5001;";
+        // public static string LOCAL_URL_LIST = "http://127.0.0.1:5000;http://localhost:5000;https://localhost:5001;https://127.0.0.1:5001;";
+        public static string LOCAL_URL_LIST = "http://127.0.0.1:5000;https://127.0.0.1:5001;";
         // public static string LOCAL_URL_LIST = "https://PUBLIC_URL:5001;https://PUBLIC_IP:5001;";
         // public static string LOCAL_URL_LIST = "https://PUBLIC_URL:5001;";
         // public static string LOCAL_URL_LIST = "https://APIDOMAIN.COM:5001;";

@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# Used in production to restart service if it crashes (not that I've seen that issue) or is leaking mem (nor this)
+
 SERVICE='abapiservicecon'
  
 if ps ax | grep -v grep | grep $SERVICE > /dev/null

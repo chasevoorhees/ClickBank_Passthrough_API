@@ -11,14 +11,19 @@ So - We use this passthrough API to let the client JS call it instead. This API 
 It's not perfect: Currenly we just log IP attempts to use the API and disable IPs after 5 calls within 24hrs (minus when IP=localhost or last_name = testsale). Other methods like footprinting or cookies could be employed, but wouldn't realistically add much security. However, minifying and obfuscating the JS client would *definitely* be a good idea.
 
 
-----------------------
 
+
+----------------------
 Args (**required)
+======================
+
 Example:
 
 sudo ./cbapiserviceconsole VENDOR=myvendorname MONTHLY_PRODUCT_SKU=11 CANCEL_PRODUCT_TITLE="Membership Subscription" CERT_MODE=PROD CERT_PEM=/home/ubuntu/cert.pem KEY_PEM=/home/ubuntu/cert.pem URL_LIST=https://APIDOMAIN.COM:5001; API_AUTHKEY=DEVKEY:APIKEY CORS_LIST=https://SITEDOMAIN.COM 
 
-======================
+
+
+--------------------
 CERT_MODE = DEV
 --------------------
 PROD (req CERT_PEM, KEY_PEM) 
@@ -48,7 +53,7 @@ USER_AGENT = CB_API_Example1.0
 --------------------
 
 --------------------
-URL_LIST = http://127.0.0.1:5000;http://localhost:5000;https://localhost:5001;https://127.0.0.1:5001;
+URL_LIST = "http://127.0.0.1:5000;https://127.0.0.1:5001;"
 --------------------
 *semi-colon separated values
 http://*:5000 https://*:5001
@@ -72,8 +77,8 @@ CB Vendor Name
 --------------------
 **MONTHLY_PRODUCT_SKU = 43
 --------------------
-*Order change function looks for an order without this SKU btu with product title containing CANCEL_PRODUCT_TITLE, status = active, and recurring = true
-then calls changeOrder to alter oldSKU/itemNo to MONTHLY_PRODUCT_SKU
+*Order change function looks for an order without this SKU but with product title containing CANCEL_PRODUCT_TITLE, status = active, and recurring = true
+then calls changeOrder to alter that order with currentorder.itemNo = oldSKU and newSKU = MONTHLY_PRODUCT_SKU
 
 --------------------
 CORS_LIST = https://SITEDOMAIN.com http://127.0.0.1 http://localhost https://localhost https://127.0.0.1
@@ -91,7 +96,6 @@ true/false
 ----------------------
 How to use this:
 ======================
-
 The API needs to be run on any server (currently compiled for Ubuntu in the Zip file). It's binary file can be run just by calling it from a terminal/console by name: cbapiserviceconsole
 It runs on port 5001 (https). 
 This port need to be opened/accessible via the virtual machine configuration. You NEED an Elastic/Static IP address assigned to the VM instance you're using, and a DNS A Record for cbapi.j3innovations.com pointing to it.
