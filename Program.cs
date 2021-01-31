@@ -160,7 +160,9 @@ namespace cbapiserviceconsole
             UseUrls(Globals.LOCAL_URL_LIST).
             Configure(app =>
             {
-                app.UseCors(options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+                if (Globals.CORS && Globals.CORSList.Any()){
+                    app.UseCors(options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+                }
                 ForwardedHeadersOptions forwardingOptions = new() { ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto | ForwardedHeaders.All };
                 app.UseForwardedHeaders(forwardingOptions);
                 app.UseRouting();

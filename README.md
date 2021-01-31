@@ -11,6 +11,8 @@ So - We use this passthrough API to let the client JS call it instead. This API 
 It's not perfect: Currenly we just log IP attempts to use the API and disable IPs after 5 calls within 24hrs (minus when IP=localhost or last_name = testsale). Other methods like footprinting or cookies could be employed, but wouldn't realistically add much security. However, minifying and obfuscating the JS client would *definitely* be a good idea.
 
 
+***Note: I haven't debugged this very thoroughly since adding a bunch of command line args. 
+I also added 
 
 
 ----------------------
@@ -81,10 +83,11 @@ CB Vendor Name
 then calls changeOrder to alter that order with currentorder.itemNo = oldSKU and newSKU = MONTHLY_PRODUCT_SKU
 
 --------------------
-CORS_LIST = https://SITEDOMAIN.com http://127.0.0.1 http://localhost https://localhost https://127.0.0.1
+CORS_LIST = "http://127.0.0.1" "http://localhost"
 --------------------
 *space separated values
 URLs we can cross-origin call the pass-through API from (so the domain where you're hosting this)
+you need https://SITEDOMAIN.com  for PROD
 
 --------------------
 CORS = true

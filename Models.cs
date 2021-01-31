@@ -11,10 +11,11 @@ namespace cbapiserviceconsole
         public static string LOCAL_HTTPS_PORT = "5001";
         public static string LOCAL_USER_AGENT = "CB_API_Example1.0";
         public static string CERT_MODE = "DEV";
-        public static bool ENABLE_TESTSALE = false;
+        public static bool ENABLE_TESTSALE = true;
         public static bool SSL = true;
         public static bool CORS = true;
-        public static string[] CORSList = {"https://SITEDOMAIN.com"};
+        // public static string[] CORSList = {"https://SITEDOMAIN.com"};
+        public static string[] CORSList = {"http://127.0.0.1", "http://localhost"};
         //"http://127.0.0.1",
         // public static string LOCAL_URL_LIST = "http://*:5000"; https://*:5001;
         // public static string LOCAL_URL_LIST = "http://127.0.0.1:5000;http://localhost:5000;https://localhost:5001;https://127.0.0.1:5001;";

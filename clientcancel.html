@@ -90,9 +90,9 @@
     <script>
     function addAsRestParam(url, name, value) {
         if (url.indexOf("?") == -1){
-            return url + "?" + name + "=" + value;
+            return url + "?" + name + "=" + encodeURIComponent(value);
         }else{
-            return url + "&" + name + "=" + value;
+            return url + "&" + name + "=" + encodeURIComponent(value);
         }
     }
     </script>
@@ -142,7 +142,6 @@
                 params = addAsRestParam(params, "email", $("#email").val())
                 params = addAsRestParam(params, "lastName", $("#lastName").val())
                 params = addAsRestParam(params, "zip", $("#zip").val())
-                url = url + encodeURI(params);
 
                 $.ajax({
                 type: "GET",
